@@ -10,7 +10,7 @@ const tde08 = () => {
     //---useEffect
 
     //useEffect permite que você execute efeitos em seu componente como atualizar, montar e desmontar.
-    //Ele e executado apos cada renderizção e pode ser ultilizado para renderizar componentes especificos
+    //Ele e executado apos cada renderização e pode ser ultilizado para renderizar componentes especificos
     
     useEffect(()=>{
         console.log('useEffect como didMount')
@@ -43,6 +43,17 @@ const tde08 = () => {
     const nomeFuncao1 = useMemo(()=>{
         return 10
     },[])
+
+    //---Hooks criado pelo desenvolvedor
+
+    //Quando você tem lógica de componente que precisa ser usada por vários componentes, podemos extrair essa lógica para um Hook personalizado.
+    //Exeplo useFetch
+    
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/todos")
+          .then((res) => res.json())
+          .then((data) => setData(data));
+     }, []);
     
     return (
         <div>
